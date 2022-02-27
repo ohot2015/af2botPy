@@ -1,27 +1,31 @@
+import time
+import keyboard
 import pyautogui
 from win32api import GetSystemMetrics
-import keyboard
-import time
+
+
+def check_exit():
+    if keyboard.is_pressed('f9'):
+        return False
+    else:
+        return True
 
 
 def main():
-    bot_is_active = True
     print('Нажмите Ctrl-C для выхода.')
-    #    print(pyautogui.KEYBOARD_KEYS)
     print("width =", GetSystemMetrics(0))
     print("height =", GetSystemMetrics(1))
-
+    switch = 1
     try:
-        # выходит при нажатии на f9
-        while True:
-            if keyboard.is_pressed('f9'):
-                time.sleep(0.1)
-                bot_is_active = True
-
-            while bot_is_active:
-                if keyboard.is_pressed('f9'):
-                    time.sleep(0.1)
-                    bot_is_active = False
+        while check_exit():
+            if keyboard.is_pressed('f10'):
+                switch = abs(abs(0 - switch) - 1)
+                time.sleep(0.5)
+            while switch == 1 and check_exit():
+                if keyboard.is_pressed('f10'):
+                    switch = abs(abs(0 - switch) - 1)
+                    time.sleep(0.5)
+                check_exit()
                 # Получение и вывод координат курсора, а также RGB-цвета пикселя под ним
                 x, y = pyautogui.position()
                 positionStr = 'X: ' + str(x).rjust(4) + ' Y: ' + str(y).rjust(4)
@@ -38,3 +42,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+
