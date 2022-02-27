@@ -18,16 +18,21 @@ def pixel_search(rect, rgb_search, allowance=1):
     for i in range(rect[0], rect[2]):
         for j in range(rect[1], rect[3]):
             rgb_screen = screenshot.getpixel((i, j))
-            for allowance_r in range(0, allowance):
-                for allowance_g in range(0, allowance):
-                    for allowance_b in range(0, allowance):
-                        print(i, j, rgb_screen)
-                        r = rgb_search[0] + allowance_r
-                        g = rgb_search[1] + allowance_g
-                        b = rgb_search[2] + allowance_b
-                        if rgb_screen[0] == r and rgb_screen[1] == g and rgb_screen[2] == b:
-                            print(i, j)
-                            return True
+            for k in range(0, 1000):
+                if rgb_screen[0] == rgb_search[0] and rgb_screen[1] == rgb_search[1] and rgb_screen[2] == rgb_search[2]:
+                    print(i, j)
+                    return True
+            #for k in range(0, allowance):
+            # for allowance_r in range(0, allowance):
+            #     for allowance_g in range(0, allowance):
+            #         for allowance_b in range(0, allowance):
+            #             print(i, j, rgb_screen)
+            #             r = rgb_search[0] + allowance_r
+            #             g = rgb_search[1] + allowance_r
+            #             b = rgb_search[2] + allowance_r
+            #             if rgb_screen[0] == r and rgb_screen[1] == g and rgb_screen[2] == b:
+            #                 print(i, j)
+            #                 return True
     return False
 
 
