@@ -17,7 +17,7 @@ def main():
             if keyboard.is_pressed('f9'):
                 time.sleep(0.1)
                 bot_is_active = True
-
+        #pui
             while bot_is_active:
                 if keyboard.is_pressed('f9'):
                     time.sleep(0.1)
