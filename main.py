@@ -65,12 +65,12 @@ def balancerSearch():
 
             # Step 3: Draw the rectangle on large_image
             cv2.rectangle(large_image, (MPx, MPy), (MPx + tcols, MPy + trows), (0, 0, 255), 2)
-            return True
+            # return True
             # Display the original image with the rectangle around the match.
-            cv2.imshow('output', large_image)
+            #  cv2.imshow('output', large_image)
 
             # The image is only displayed if we call this
-            cv2.waitKey(0)
+            # cv2.waitKey(0)
     # =====================
 
 def main():
@@ -101,9 +101,9 @@ def main():
                 #     break
 
                 # доделять чтоб выводило да или нет
-                # if not balancerSearch():
-                #     print('Клюет ')
-                #
+                if not balancerSearch():
+                    print('Клюет ')
+
 
                 x, y = pyautogui.position()
 
